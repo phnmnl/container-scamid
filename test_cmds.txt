@@ -1,0 +1,2 @@
+which runscamid.R
+which Rscript
