@@ -4,8 +4,8 @@ suppressPackageStartupMessages(library(optparse))
 
 options_list<-list(
   make_option(c("--input","-i"),help="Input path"),
-  make_option(c("--output","-o"),help="ouput full path name, directories and files will be created here"),
-  make_option(c("--cdfdir","-z"),help="directory containing .CDFs")
+  make_option(c("--cdfdir","-z"),help="directory containing .CDFs"),
+  make_option(c("--output","-o"),help="ouput full path name, directories and files will be created here")
 )
 
 parser = OptionParser(option_list = options_list)

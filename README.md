@@ -96,7 +96,7 @@ The working directory could be any directory in the used computer, it is named f
 - run test1 using the test data (available for reference in [this Google Drive folder](https://drive.google.com/drive/folders/17dBkItF19KjT4b_3-9j6yGMJVcQIWonJ)).
  
 ```
-docker run -it --entrypoint=runTest1.sh SCAMID
+docker run -it --entrypoint=runTest1.sh scamid
 ```
 ## The format of input data description
 

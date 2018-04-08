@@ -15,16 +15,16 @@ LABEL license="https://github.com/phnmnl/container-scamid/blob/develop/License.t
 LABEL license="https://github.com/phnmnl/container-scamid/blob/master/License.txt"
 LABEL tags="Metabolomics"
 
-ENV scamid_REVISION "7a26a266c25cc51c15e2bf5b94a4881606b8e73f"
+ENV scamid_REVISION "77d7cb723f4df3628c898cdb521a90c655d3768a"
 
 # Setup package repos
 RUN apt-get -y update && apt-get -y --no-install-recommends install r-base-dev libssl-dev \
                                     libcurl4-openssl-dev git \
-                                    libssh2-1-dev r-cran-ncdf4 && \
+                                    libssh2-1-dev libnetcdf-dev r-cran-ncdf4 && \
     echo 'options("repos"="http://cran.rstudio.com")' >> /etc/R/Rprofile.site && \
     R -e "install.packages(c('devtools', 'optparse'))" && \
     R -e 'library(devtools); install_github("seliv55/scamid",ref=Sys.getenv("scamid_REVISION")[1])' && \
-    apt-get purge -y git r-base-dev libssl-dev libcurl4-openssl-dev libssh2-1-dev && \
+    apt-get purge -y git r-base-dev libssl-dev libcurl4-openssl-dev libssh2-1-dev libnetcdf-dev && \
     apt-get clean && apt-get autoremove -y && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
 # Add scripts folder to container
